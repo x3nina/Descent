@@ -2,10 +2,30 @@ namespace Descent.Entity;
 
 public abstract class Entity
 {
-    public Vector2 Position;
-    public int Health;
+    public float Speed { get; protected set; }
+    public int MaxHealth { get; protected set; }
+    public int Health { get; protected set; }
     public bool IsAlive => Health > 0;
 
-    public abstract void Update(GameTime gameTime, Level level);
+    public Sprite Sprite { get; }
+
+    protected Entity(Vector2 startPosition, int maxHealth, Sprite sprite)
+    {
+        Sprite = sprite;
+        Sprite.Position = startPosition;
+        MaxHealth = maxHealth;
+        Health = maxHealth;
+
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if (amount > 0)
+        {
+            Health = Math.Max(0, Health - amount);
+        }
+    }
+
+    public abstract void Update(GameTime gameTime);
     //public abstract void Draw(SpriteBatch spriteBatch);
 }

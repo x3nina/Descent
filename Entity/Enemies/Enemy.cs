@@ -1,10 +1,10 @@
 namespace Descent.Entity.Enemies;
 
-public abstract class Enemy : Entity
-{
-    public int Damage;
-    // Shared AI helper logic (e.g., pathfinding, distance checks to player)
-}
+// public abstract class Enemy : Entity
+// {
+//     public int Damage;
+//     // Shared AI helper logic (e.g., pathfinding, distance checks to player)
+// }
 
 /*
 public class ShortRangeEnemy : Enemy
